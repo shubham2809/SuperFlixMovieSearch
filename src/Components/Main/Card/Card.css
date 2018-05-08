@@ -1,0 +1,47 @@
+.custom-card {
+    width: 15rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    margin: 5px;
+    text-align: center;
+    background: none;
+    padding: 0;
+}
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    opacity: 0.8;
+    background-color:rgba(0,0,0,0.8);
+    overflow: hidden;
+    width: 100%;
+    transition: .5s ease-out;
+    cursor: pointer;
+  }
+  
+  .custom-card:hover .overlay {
+    height: 100%;
+  }
+  
+  .custom-btn-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+/*max-width means if screen width is less than or equal to 600px then applly the specified css, also max-width is usually associated with Desktop First*/
+@media only screen and (max-width: 600px)  {
+.customcard {
+    width: 200px;
+    margin:5px;
+  }
+}

@@ -1,0 +1,28 @@
+.main-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap {
+    box-sizing: border-box;
+    /* Using flex model */
+    display: flex;
+    align-items: center;
+    /* set the flex items in row*/
+    flex-direction: row;
+    /* if extra space is available then it will distribute evenly */
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+.btn{
+    margin: 5px;
+}
+  @media only screen and (max-width: 600px)  {
+    .wrap {
+      /*converting from rows to columns for mobile devices*/
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding:5px;
+    }
+  }

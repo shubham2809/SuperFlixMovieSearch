@@ -1,0 +1,25 @@
+.custom-list-group{
+    margin: 5px;
+    width: 600px;
+    animation: moveInLeft 2s ease-in-out forwards;
+}
+
+
+@keyframes moveInLeft {
+    0%{
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+
+@media only screen and (max-width: 600px)  {
+  .custom-list-group {
+      width: 500px;
+    }
+  }    

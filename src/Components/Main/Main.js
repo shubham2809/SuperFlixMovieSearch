@@ -8,6 +8,7 @@ import Watched from "./../Watched/Watched";
 import Modal from "./../UI/Modal/Modal";
 import MovieSummary from "./../MovieSummary/MovieSummary";
 import Spinner from "./../UI/Spinner/Spinner";
+import MainText from './../UI/MainText/MainText';
 
 /*
     * This Component is responsible for rendering Top Ten Movies Cards and Compare Table and Modal
@@ -26,6 +27,7 @@ class Main extends Component {
   //   }
   //   return false;
   // }
+
   /*----------------------------------------------------------
   * The reference to this method is passed to stateless child component Card
   * Although we could have directly access state from child component , but it would have made application heavy
@@ -42,13 +44,21 @@ class Main extends Component {
   /*----------------------------------------------------------*/
 
   render() {
-    /*-----------Initializing Cards----------------------------------------*/
+    /*-----------Initializing Header----------------------------------------*/
+    let Header = null;
+
+    if(this.props.loading) {
+      Header = <Spinner/>
+    }
+    else {
+      Header = <MainText/>
+    }
+   
+
+    /*-----------Initializing Header----------------------------------------*/
     let cards = null;
-
-
-
     //Accessing state from Store as props
-    if (!this.props.loading) {
+    
     cards = [...this.props.movies].map(elem => {
       return (
         <Card
@@ -63,7 +73,7 @@ class Main extends Component {
         />
       );
     });
-  }
+  
 
     /*-----------Initializing Watched----------------------------------------*/
     const watchedMovies = [...this.props.movies].filter(movie => {
@@ -76,7 +86,7 @@ class Main extends Component {
       <div className="main-container">
         {watchedMovies.length >= 1 ? <Watched movies={watchedMovies} /> : null}
 
-        {this.props.loading ? <Spinner/> :<div className="wrap">{cards}</div>}
+        {cards.length === 0 ? Header : <div className="wrap">{cards}</div>} 
         
         <Modal show={this.props.show}>
           {this.props.selectedMovie ? (

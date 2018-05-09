@@ -2,7 +2,7 @@ import * as actionTypes from "./../actions/actionTypes";
 
 const initialState = {
   moviesArr: [],
-  loading: true,
+  loading: false,
   error: false,
   showModal: false,
   selectedMovie: null
